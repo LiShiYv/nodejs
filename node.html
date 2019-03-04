@@ -1,0 +1,53 @@
+CTYPE HTML>
+<html>
+		<head>
+				    <meta charset="utf-8">
+					    <title>测试</title>
+
+						    <script type="text/javascript">
+									        function WebSocketTest()
+        {
+				            if ("WebSocket" in window)
+						            {
+											                alert("您的浏览器支持 WebSocket!");
+
+											
+											
+											                var ws = new WebSocket("ws://wl.com:8080",'echo-protocol');
+
+											                ws.onopen = function()
+											                {
+																	                    ws.send("发送");
+																	                    alert("发送中...");
+																	                };
+
+											                ws.onmessage = function (evt)
+											                {
+																	                    var received_msg = evt.data;
+																	                    alert("服务器已接收...");
+																	                };
+
+											                ws.onclose = function()
+											                {
+																	                    alert("连接已关闭...");
+																	                };
+											            }
+
+				            else
+						            {
+											                alert("您的浏览器不支持 WebSocket!");
+											            }
+				        }
+    </script>
+
+		</head>
+		<body>
+
+				<div id="sse">
+						    <a href="javascript:WebSocketTest()">运行 WebSocket</a>
+				</div>
+
+		</body>
+</html>
+
+
